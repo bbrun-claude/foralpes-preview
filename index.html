@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foralpes — Expert Géothermie &amp; Forage en Rhône-Alpes</title>
+<meta name="description" content="Foralpes, expert en géothermie, aquathermie et forage à Villard-Bonnot (38). Sondes géothermiques, pieux énergétiques, dépollution. Certifié RGE.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--primary:#2B7A78;
+--primary-dark:#17252A;
+--primary-light:#3AAFA9;
+--accent:#DEF2F1;
+--white:#FFFFFF;
+--gray:#6B7280;
+--light-bg:#F8FFFE;
+}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--primary-dark);line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--primary);text-decoration:none}
+a:hover{color:var(--primary-light)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(23,37,42,0.95);backdrop-filter:blur(8px);z-index:100;padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{height:45px;width:auto}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--white);font-size:0.95rem;font-weight:500;transition:color 0.3s}
+.nav-links a:hover{color:var(--primary-light)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--white);margin:5px 0;transition:0.3s}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--primary-dark)}
+.hero-bg{position:absolute;inset:0;background:url('https://www.foralpes.fr/wp-content/uploads/2019/04/geothermie-rhone-alpes-2-1024x614.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(23,37,42,0.85) 0%,rgba(43,122,120,0.7) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:800px}
+.hero-logo{max-width:280px;margin:0 auto 2rem;filter:brightness(0) invert(1)}
+.hero-tagline{font-size:1.2rem;color:var(--accent);text-transform:uppercase;letter-spacing:3px;margin-bottom:1rem}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);color:var(--white);font-weight:700;line-height:1.2;margin-bottom:1.5rem}
+.hero p{font-size:1.15rem;color:rgba(222,242,241,0.9);margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+.btn{display:inline-block;padding:14px 36px;border-radius:4px;font-weight:600;font-size:1rem;transition:all 0.3s;cursor:pointer;border:none}
+.btn-primary{background:var(--primary-light);color:var(--white)}
+.btn-primary:hover{background:var(--primary);color:var(--white);transform:translateY(-2px);box-shadow:0 8px 25px rgba(58,175,169,0.3)}
+.btn-outline{border:2px solid var(--white);color:var(--white);background:transparent;margin-left:1rem}
+.btn-outline:hover{background:var(--white);color:var(--primary-dark)}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:3.5rem}
+.section-title h2{font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--primary-dark);margin-bottom:0.75rem}
+.section-title .underline{width:60px;height:3px;background:var(--primary-light);margin:0 auto 1rem}
+.section-title p{color:var(--gray);font-size:1.05rem;max-width:600px;margin:0 auto}
+
+/* ABOUT */
+.about{background:var(--light-bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-img{border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.1)}
+.about-img img{width:100%;height:400px;object-fit:cover}
+.about-text h3{font-size:1.6rem;color:var(--primary-dark);margin-bottom:1rem}
+.about-text p{color:var(--gray);margin-bottom:1rem}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.stat{text-align:center;padding:1rem;background:var(--white);border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+.stat-number{font-size:2rem;font-weight:700;color:var(--primary)}
+.stat-label{font-size:0.85rem;color:var(--gray);margin-top:0.25rem}
+
+/* SERVICES */
+.services{background:var(--white)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.service-card{background:var(--light-bg);border-radius:8px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.1)}
+.service-card img{width:100%;height:200px;object-fit:cover}
+.service-card-body{padding:1.5rem}
+.service-card h3{font-size:1.2rem;color:var(--primary-dark);margin-bottom:0.75rem}
+.service-card p{font-size:0.95rem;color:var(--gray);line-height:1.7}
+
+/* CERTIFICATIONS */
+.certifications{background:var(--primary-dark);color:var(--white);text-align:center}
+.certifications .section-title h2{color:var(--white)}
+.certifications .section-title p{color:rgba(222,242,241,0.7)}
+.cert-grid{display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap}
+.cert-item{display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+.cert-item img{height:80px;width:auto;filter:brightness(0) invert(1);opacity:0.85}
+.cert-item span{font-size:0.9rem;color:rgba(222,242,241,0.8)}
+
+/* REFERENCES */
+.references{background:var(--light-bg)}
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.ref-card{border-radius:8px;overflow:hidden;background:var(--white);box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.ref-card img{width:100%;height:220px;object-fit:cover}
+.ref-card-body{padding:1.25rem}
+.ref-card h3{font-size:1.1rem;color:var(--primary-dark);margin-bottom:0.5rem}
+.ref-card p{font-size:0.9rem;color:var(--gray)}
+
+/* CONTACT */
+.contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.contact-info h3{font-size:1.4rem;color:var(--primary-dark);margin-bottom:1.5rem}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.contact-icon{width:44px;height:44px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:20px;height:20px;stroke:var(--primary)}
+.contact-item p{font-size:0.95rem;color:var(--gray)}
+.contact-item strong{color:var(--primary-dark);display:block;margin-bottom:0.25rem}
+.contact-map{border-radius:8px;overflow:hidden;height:100%;min-height:350px}
+.contact-map iframe{width:100%;height:100%;border:0}
+
+/* FOOTER */
+.footer{background:var(--primary-dark);color:rgba(222,242,241,0.7);padding:2.5rem 2rem;text-align:center}
+.footer p{font-size:0.9rem;margin-bottom:0.5rem}
+.footer a{color:var(--primary-light)}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-links{display:none;position:absolute;top:70px;left:0;right:0;background:var(--primary-dark);flex-direction:column;padding:1.5rem 2rem;gap:1rem}
+.nav-links.active{display:flex}
+.nav-toggle{display:block}
+.hero h1{font-size:2rem}
+.hero-logo{max-width:200px}
+.about-grid,.contact-grid{grid-template-columns:1fr}
+.about-stats{grid-template-columns:repeat(2,1fr)}
+.btn-outline{margin-left:0;margin-top:0.75rem}
+.hero .btn{display:block;width:fit-content;margin:0 auto 0.75rem}
+.cert-grid{gap:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+<img src="https://www.foralpes.fr/wp-content/uploads/2014/04/en-tete2.jpg" alt="Foralpes" class="nav-logo">
+<button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+<ul class="nav-links">
+<li><a href="#accueil">Accueil</a></li>
+<li><a href="#expertise">Notre expertise</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#references">Réalisations</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div class="hero-tagline">La maîtrise de la géothermie</div>
+<h1>Expert en géothermie et forage en Rhône-Alpes</h1>
+<p>Depuis Villard-Bonnot, Foralpes conçoit et réalise vos installations géothermiques, aquathermiques et vos forages. Certifié RGE.</p>
+<a href="#contact" class="btn btn-primary">Demander un devis</a>
+<a href="#services" class="btn btn-outline">Nos services</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="expertise">
+<div class="container">
+<div class="about-grid">
+<div class="about-img">
+<img src="https://www.foralpes.fr/wp-content/uploads/2019/04/geothermie-rhone-alpes-2-1024x614.jpg" alt="Foreuse Foralpes en montagne">
+</div>
+<div class="about-text">
+<h3>Votre expert géothermie depuis Grenoble</h3>
+<p>Foralpes est une entreprise spécialisée dans la géothermie, l'aquathermie, les pieux énergétiques et le forage de reconnaissance. Basés à Villard-Bonnot dans l'Isère, nous intervenons sur l'ensemble de la région Rhône-Alpes.</p>
+<p>Notre mission : exploiter les ressources naturelles et renouvelables du sous-sol pour répondre à vos besoins en chauffage et en climatisation, avec des solutions performantes et durables.</p>
+<p>Dirigée par Aymeric Lot, notre équipe certifiée RGE vous accompagne de l'étude de faisabilité à la mise en service de votre installation.</p>
+<div class="about-stats">
+<div class="stat">
+<div class="stat-number">RGE</div>
+<div class="stat-label">Certifié Garant de l'Environnement</div>
+</div>
+<div class="stat">
+<div class="stat-number">38</div>
+<div class="stat-label">Isère &amp; Rhône-Alpes</div>
+</div>
+<div class="stat">
+<div class="stat-number">100%</div>
+<div class="stat-label">Énergies renouvelables</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-title">
+<h2>Nos domaines d'intervention</h2>
+<div class="underline"></div>
+<p>Des solutions géothermiques adaptées à chaque projet, du particulier au collectif</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<img src="https://www.foralpes.fr/wp-content/uploads/2014/04/sonde-g%C3%A9o.jpg" alt="Sonde géothermique">
+<div class="service-card-body">
+<h3>Sondes géothermiques</h3>
+<p>Installation de sondes verticales pour capter l'énergie du sous-sol. Solution idéale pour le chauffage et la climatisation des bâtiments résidentiels et tertiaires.</p>
+</div>
+</div>
+<div class="service-card">
+<img src="https://www.foralpes.fr/wp-content/uploads/2014/04/pompe-aqua.jpg" alt="Aquathermie">
+<div class="service-card-body">
+<h3>Aquathermie</h3>
+<p>Exploitation de l'énergie thermique des nappes phréatiques. Une ressource naturelle et constante pour chauffer ou rafraîchir vos locaux tout au long de l'année.</p>
+</div>
+</div>
+<div class="service-card">
+<img src="https://www.foralpes.fr/wp-content/uploads/2014/04/pieux-energetique.jpg" alt="Pieux énergétiques">
+<div class="service-card-body">
+<h3>Pieux et corbeilles énergétiques</h3>
+<p>Intégration de capteurs géothermiques dans les fondations de votre bâtiment. Double fonction : fondation structurelle et captage d'énergie thermique.</p>
+</div>
+</div>
+<div class="service-card">
+<img src="https://www.foralpes.fr/wp-content/uploads/2014/04/depollution.jpg" alt="Dépollution et forage">
+<div class="service-card-body">
+<h3>Micropieux, dépollution &amp; forage</h3>
+<p>Réalisation de micropieux, dépollution des sols et forages de reconnaissance. Expertise technique complète pour sécuriser et analyser vos terrains.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications">
+<div class="container">
+<div class="section-title">
+<h2>Nos certifications et partenaires</h2>
+<div class="underline" style="background:var(--primary-light)"></div>
+<p>Des labels qui garantissent la qualité et la fiabilité de nos interventions</p>
+</div>
+<div class="cert-grid">
+<div class="cert-item">
+<img src="https://www.foralpes.fr/wp-content/uploads/2019/04/rge2019-1.png" alt="Certification RGE" style="filter:none;opacity:1">
+<span>Reconnu Garant de l'Environnement</span>
+</div>
+<div class="cert-item">
+<img src="https://www.foralpes.fr/wp-content/themes/best-reloaded/img/brgm.png" alt="BRGM" style="filter:none;opacity:1">
+<span>Bureau de Recherches Géologiques</span>
+</div>
+<div class="cert-item">
+<img src="https://www.foralpes.fr/wp-content/themes/best-reloaded/img/ademe.png" alt="ADEME" style="filter:none;opacity:1">
+<span>Agence de la transition écologique</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REFERENCES -->
+<section class="references" id="references">
+<div class="container">
+<div class="section-title">
+<h2>Nos réalisations</h2>
+<div class="underline"></div>
+<p>Découvrez quelques-uns de nos projets en géothermie et forage en Rhône-Alpes</p>
+</div>
+<div class="ref-grid">
+<div class="ref-card">
+<img src="https://www.foralpes.fr/wp-content/uploads/2019/04/geothermie-rhone-alpes-1.jpg" alt="Pôle Petite Enfance">
+<div class="ref-card-body">
+<h3>Pôle Petite Enfance</h3>
+<p>Installation géothermique pour un équipement public — crèche, jardin d'enfant et relais assistantes maternelles.</p>
+</div>
+</div>
+<div class="ref-card">
+<img src="https://www.foralpes.fr/wp-content/uploads/2019/04/geothermie-rhone-alpes-9.jpg" alt="Auberge des Glières">
+<div class="ref-card-body">
+<h3>Réhabilitation Auberge des Glières</h3>
+<p>Thorens-Glières (74) — Forage et installation de sondes géothermiques pour la réhabilitation complète de l'auberge.</p>
+</div>
+</div>
+<div class="ref-card">
+<img src="https://www.foralpes.fr/wp-content/uploads/2019/04/geothermie-rhone-alpes-2-1024x614.jpg" alt="Forage en montagne">
+<div class="ref-card-body">
+<h3>Forage en altitude</h3>
+<p>Intervention en milieu montagnard avec notre foreuse — sondes géothermiques pour chalets et bâtiments d'altitude.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="section-title">
+<h2>Contactez-nous</h2>
+<div class="underline"></div>
+<p>Un projet de géothermie ? Demandez un devis gratuit et personnalisé</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info">
+<h3>Foralpes</h3>
+<div class="contact-item">
+<div class="contact-icon">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+</div>
+<div>
+<strong>Adresse</strong>
+<p>17 rue Guynemer<br>38190 Villard-Bonnot – Lancey</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+</div>
+<div>
+<strong>Téléphone</strong>
+<p><a href="tel:0683128087">06 83 12 80 87</a></p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+</div>
+<div>
+<strong>Email</strong>
+<p><a href="mailto:info@foralpes.fr">info@foralpes.fr</a></p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+</div>
+<div>
+<strong>Certifications</strong>
+<p>RGE — Reconnu Garant de l'Environnement<br>Partenaire BRGM &amp; ADEME</p>
+</div>
+</div>
+</div>
+<div class="contact-map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2822.5!2d5.891!3d45.263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478af4e8e6e3e8c1%3A0x0!2s17+Rue+Guynemer%2C+38190+Villard-Bonnot!5e0!3m2!1sfr!2sfr!4v1709000000000!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation Foralpes"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<p><strong>Foralpes</strong> — S.A.S.U. au capital de 20 000 € — SIREN 801 752 544 — RCS Grenoble</p>
+<p>17 rue Guynemer, 38190 Villard-Bonnot — <a href="tel:0683128087">06 83 12 80 87</a> — <a href="mailto:info@foralpes.fr">info@foralpes.fr</a></p>
+<p style="margin-top:1rem;font-size:0.85rem">© 2024 Foralpes — Tous droits réservés</p>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t){t.scrollIntoView({behavior:'smooth'});document.querySelector('.nav-links').classList.remove('active')}})});
+window.addEventListener('scroll',()=>{document.querySelector('.nav').style.boxShadow=window.scrollY>50?'0 2px 20px rgba(0,0,0,0.15)':'none'});
+</script>
+</body>
+</html>
